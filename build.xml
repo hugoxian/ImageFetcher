@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    name="buildImageFetcher"
+    basedir="."
+    default="jarImageFetcher" >
+
+    <property
+        name="buildwar.dest"
+        value="bin" />
+
+    <property
+        name="class.dir"
+        value="${buildwar.dest}/classes" />
+
+    <property
+        name="jar.name"
+        value="imagefetcher.jar" />
+
+    <target
+        name="jarImageFetcher"
+        depends="" >
+
+        <delete file="${jar.name}" />
+
+        <jar destfile="${jar.name}" >
+
+            <fileset
+                dir="${class.dir}"
+                includes="com/hugo/image/fetcher/plugin/**" />
+        </jar>
+    </target>
+
+</project>
