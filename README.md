@@ -17,7 +17,8 @@ ImageFetcher.init(CACHDIR, cacheSize); 其中CACHEDIR是SD卡的缓存路径，c
 
 效果图：
 
-注意点：
+注意点:
+
 在使用ImageFetcher.getInstance()前应先调用ImageFetcher.init(CACHDIR,cacheSize)初始化，直接取ImageFetcher.getInstance()将返回null！
 
 
