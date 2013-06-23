@@ -16,6 +16,7 @@ ImageFetcher.init(CACHDIR, cacheSize); 其中CACHEDIR是SD卡的缓存路径，c
 给ListView/GridView添加一个监听器，在滚动时调用：ImageFetcher.getInstance().lock(); 停止后调用：ImageFetcher.getInstance.unlock();
 
 效果图：
+![image](http://github.com/hugoxian/ImageFetcher/image.jpg)
 
 注意点:
 
