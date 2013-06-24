@@ -46,10 +46,11 @@ public class ImageFetcher {
 	private ImageFetcher(String sdPath, int cacheSize) {
 		// 取得CPU的核数
 		int cpuCount = Runtime.getRuntime().availableProcessors();
+		// 也可以根据网络状况，譬如wifi，gprs等决定初始化线程池数
 		// 根据CPU的核数初始化线程池
-		// this.executorService = Executors.newFixedThreadPool(cpuCount + 1);
+		this.executorService = Executors.newFixedThreadPool(cpuCount + 1);
 		// 单线程池，主要是为了观察效果，测试用
-		this.executorService = Executors.newSingleThreadExecutor();
+		// this.executorService = Executors.newSingleThreadExecutor();
 		this.fetchers = new ArrayList<Fetchable>();
 		// 加载三个图片加载器，注意顺序，优先从内存缓存中取，其次SD卡缓存中存，最后从网络中获取
 		this.fetchers.add(new MemoryCahceFetcher(cacheSize));
