@@ -2,6 +2,8 @@ package com.hugo.image.fetcher.plugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -36,6 +38,8 @@ public class ImageFetcher {
 	 */
 	private boolean isLock;
 
+	private Map<String, ImageView> tasks;
+
 	/**
 	 * 
 	 * @param sdPath
@@ -48,15 +52,16 @@ public class ImageFetcher {
 		int cpuCount = Runtime.getRuntime().availableProcessors();
 		// 也可以根据网络状况，譬如wifi，gprs等决定初始化线程池数
 		// 根据CPU的核数初始化线程池
-		this.executorService = Executors.newFixedThreadPool(cpuCount + 1);
+		// this.executorService = Executors.newFixedThreadPool(cpuCount + 1);
 		// 单线程池，主要是为了观察效果，测试用
-		// this.executorService = Executors.newSingleThreadExecutor();
+		this.executorService = Executors.newSingleThreadExecutor();
 		this.fetchers = new ArrayList<Fetchable>();
 		// 加载三个图片加载器，注意顺序，优先从内存缓存中取，其次SD卡缓存中存，最后从网络中获取
 		this.fetchers.add(new MemoryCahceFetcher(cacheSize));
 		this.fetchers.add(new SDFileFetcher(sdPath));
 		this.fetchers.add(new NetworkFetcher());
-
+		// 可能出现几个view同时请求图片，故用ConcurrentHashMap
+		tasks = new ConcurrentHashMap<String, ImageView>();
 	};
 
 	private Handler mHandler = new Handler() {
@@ -130,6 +135,7 @@ public class ImageFetcher {
 	 */
 	public void unlock() {
 		this.isLock = false;
+		doTasks();
 	}
 
 	/**
@@ -139,16 +145,30 @@ public class ImageFetcher {
 	 * @param photoUrl
 	 */
 	public void addTask(ImageView imageView, String photoUrl) {
-		if (this.isLock) {
-			return;
-		}
+		// 传入数据不合法，为null则立即返回
 		if (imageView == null || photoUrl == null) {
 			return;
 		}
-		ImageInfoHolder holder = new ImageInfoHolder();
-		holder.imageView = imageView;
-		holder.photoUrl = photoUrl;
-		this.executorService.execute(new FetchRunnable(holder));
+
+		imageView.setTag(photoUrl);
+		tasks.put(Integer.toString(imageView.hashCode()), imageView);
+
+		// 如果不是锁住的话，立即加载图片
+		if (!this.isLock) {
+			doTasks();
+		}
+	}
+
+	/**
+	 * 执行加载图片任务
+	 */
+	public synchronized void doTasks() {
+		for (Map.Entry<String, ImageView> entry : tasks.entrySet()) {
+			ImageInfoHolder holder = new ImageInfoHolder();
+			holder.imageView = entry.getValue();
+			holder.photoUrl = (String) entry.getValue().getTag();
+			this.executorService.execute(new FetchRunnable(holder));
+		}
 	}
 
 	/**
