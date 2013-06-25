@@ -183,13 +183,12 @@ public class MainActivity extends Activity {
 			TextView titleView;
 			TextView contentView;
 		}
-
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
+		this.getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
 

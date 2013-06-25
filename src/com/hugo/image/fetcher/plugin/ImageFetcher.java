@@ -139,7 +139,7 @@ public class ImageFetcher {
 	}
 
 	/**
-	 * 加载一个取图片任务
+	 * 加载一个取图片任务，这个方法由主线程调用
 	 * 
 	 * @param imageView
 	 * @param photoUrl
