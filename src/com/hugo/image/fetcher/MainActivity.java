@@ -89,175 +89,25 @@ public class MainActivity extends Activity {
 	 * @return
 	 */
 	private List<ListItemVo> getItems() {
+
+		String[] urls = new String[] {
+				"http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg",
+				"http://a.hiphotos.baidu.com/album/w%3D230/sign=33a0e6cc42a98226b8c12c24ba83b97a/562c11dfa9ec8a13bb433359f603918fa0ecc02a.jpg",
+				"http://a.hiphotos.baidu.com/album/w%3D230/sign=26301abfadaf2eddd4f14eeabd110102/ca1349540923dd540677c3d1d009b3de9c824806.jpg",
+				"http://f.hiphotos.baidu.com/album/w%3D230/sign=9690e152500fd9f9a017526a152dd42b/adaf2edda3cc7cd9f078faf73801213fb80e9143.jpg",
+				"http://e.hiphotos.baidu.com/album/w%3D230/sign=9d962293b151f819f1250449eab54a76/58ee3d6d55fbb2fbe792fcaa4e4a20a44723dcc9.jpg",
+				"http://g.hiphotos.baidu.com/album/w%3D230/sign=bccaea7c0bd162d985ee651f21dea950/500fd9f9d72a60599bef45a22934349b023bba8f.jpg" };
+
 		List<ListItemVo> items = new ArrayList<ListItemVo>();
 
-		ListItemVo item = new ListItemVo();
-		item.setTitle("这里是标题1");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题2");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://a.hiphotos.baidu.com/album/w%3D230/sign=33a0e6cc42a98226b8c12c24ba83b97a/562c11dfa9ec8a13bb433359f603918fa0ecc02a.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题3");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题4");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://a.hiphotos.baidu.com/album/w%3D230/sign=26301abfadaf2eddd4f14eeabd110102/ca1349540923dd540677c3d1d009b3de9c824806.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题5");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://f.hiphotos.baidu.com/album/w%3D230/sign=9690e152500fd9f9a017526a152dd42b/adaf2edda3cc7cd9f078faf73801213fb80e9143.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题6");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=9d962293b151f819f1250449eab54a76/58ee3d6d55fbb2fbe792fcaa4e4a20a44723dcc9.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题7");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://g.hiphotos.baidu.com/album/w%3D230/sign=bccaea7c0bd162d985ee651f21dea950/500fd9f9d72a60599bef45a22934349b023bba8f.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题8");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题9");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://a.hiphotos.baidu.com/album/w%3D230/sign=33a0e6cc42a98226b8c12c24ba83b97a/562c11dfa9ec8a13bb433359f603918fa0ecc02a.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题10");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题11");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://a.hiphotos.baidu.com/album/w%3D230/sign=26301abfadaf2eddd4f14eeabd110102/ca1349540923dd540677c3d1d009b3de9c824806.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题12");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://f.hiphotos.baidu.com/album/w%3D230/sign=9690e152500fd9f9a017526a152dd42b/adaf2edda3cc7cd9f078faf73801213fb80e9143.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题13");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=9d962293b151f819f1250449eab54a76/58ee3d6d55fbb2fbe792fcaa4e4a20a44723dcc9.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题14");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://g.hiphotos.baidu.com/album/w%3D230/sign=bccaea7c0bd162d985ee651f21dea950/500fd9f9d72a60599bef45a22934349b023bba8f.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题15");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题16");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://a.hiphotos.baidu.com/album/w%3D230/sign=33a0e6cc42a98226b8c12c24ba83b97a/562c11dfa9ec8a13bb433359f603918fa0ecc02a.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题17");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题18");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://a.hiphotos.baidu.com/album/w%3D230/sign=26301abfadaf2eddd4f14eeabd110102/ca1349540923dd540677c3d1d009b3de9c824806.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题19");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://f.hiphotos.baidu.com/album/w%3D230/sign=9690e152500fd9f9a017526a152dd42b/adaf2edda3cc7cd9f078faf73801213fb80e9143.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题20");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=9d962293b151f819f1250449eab54a76/58ee3d6d55fbb2fbe792fcaa4e4a20a44723dcc9.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题21");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://g.hiphotos.baidu.com/album/w%3D230/sign=bccaea7c0bd162d985ee651f21dea950/500fd9f9d72a60599bef45a22934349b023bba8f.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题22");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题23");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://a.hiphotos.baidu.com/album/w%3D230/sign=33a0e6cc42a98226b8c12c24ba83b97a/562c11dfa9ec8a13bb433359f603918fa0ecc02a.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题24");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=ec156b4e9e3df8dca63d8892fd1072bf/c995d143ad4bd113ef2ad28b5bafa40f4afb05a7.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题25");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://a.hiphotos.baidu.com/album/w%3D230/sign=26301abfadaf2eddd4f14eeabd110102/ca1349540923dd540677c3d1d009b3de9c824806.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题26");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://f.hiphotos.baidu.com/album/w%3D230/sign=9690e152500fd9f9a017526a152dd42b/adaf2edda3cc7cd9f078faf73801213fb80e9143.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题27");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://e.hiphotos.baidu.com/album/w%3D230/sign=9d962293b151f819f1250449eab54a76/58ee3d6d55fbb2fbe792fcaa4e4a20a44723dcc9.jpg");
-		items.add(item);
-
-		item = new ListItemVo();
-		item.setTitle("这里是标题28");
-		item.setContent("这里是内容");
-		item.setPhotoUrl("http://g.hiphotos.baidu.com/album/w%3D230/sign=bccaea7c0bd162d985ee651f21dea950/500fd9f9d72a60599bef45a22934349b023bba8f.jpg");
-		items.add(item);
+		for (int i = 0; i < 100; i++) {
+			int yushu = i % urls.length;
+			ListItemVo item = new ListItemVo();
+			item.setTitle("这里是标题" + (i + 1));
+			item.setContent("这里是内容");
+			item.setPhotoUrl(urls[yushu]);
+			items.add(item);
+		}
 
 		return items;
 	}
