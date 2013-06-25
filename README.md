@@ -17,6 +17,27 @@ ImageFetcher.init(CACHDIR, cacheSize); 其中CACHEDIR是SD卡的缓存路径，c
 
 如果需要在ListView或者GridView中应用该图片加载组件，应在ListView/GridView滚动的时候，ImageFetcher停止没必要的图片加载，为用户节省流量的同时进一步提高滑动效果，给ListView/GridView添加一个监听器，在滚动时调用：ImageFetcher.getInstance().lock(); 停止后调用：ImageFetcher.getInstance.unlock();
 
+		@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				switch (scrollState) {
+				case OnScrollListener.SCROLL_STATE_FLING: {
+					mImageFetcher.lock();
+					break;
+				}
+				case OnScrollListener.SCROLL_STATE_IDLE: {
+					mImageFetcher.unlock();
+					break;
+				}
+				case OnScrollListener.SCROLL_STATE_TOUCH_SCROLL: {
+					mImageFetcher.lock();
+					break;
+				}
+				default: {
+					break;
+				}
+				}
+			}
+
 效果图：
 -----------------------------------
 
