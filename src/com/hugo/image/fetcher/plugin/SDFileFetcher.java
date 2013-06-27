@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -159,8 +160,30 @@ public class SDFileFetcher implements Fetchable {
 	 * @return
 	 */
 	private String convertUrlToFileName(String url) {
-		String[] strs = url.split("/");
-		return strs[strs.length - 1] + WHOLESALE_CONV;
+
+		byte[] hash = null;
+		try {
+			hash = MessageDigest.getInstance("MD5").digest(
+					url.getBytes("UTF-8"));
+		} catch (Exception e) {
+			Log.e(TAG, "MD5 Error", e);
+		}
+
+		if (hash == null) {
+			return url;
+		}
+
+		StringBuilder hex = new StringBuilder(hash.length * 2);
+		for (byte b : hash) {
+			if ((b & 0xFF) < 0x10) {
+				hex.append("0");
+			}
+			hex.append(Integer.toHexString(b & 0xFF));
+		}
+
+		return new StringBuilder(hex.toString()).append(WHOLESALE_CONV)
+				.toString();
+
 	}
 
 	/**
