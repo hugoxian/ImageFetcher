@@ -96,15 +96,40 @@ public class MainActivity extends Activity {
 				"http://a.hiphotos.baidu.com/album/w%3D230/sign=26301abfadaf2eddd4f14eeabd110102/ca1349540923dd540677c3d1d009b3de9c824806.jpg",
 				"http://f.hiphotos.baidu.com/album/w%3D230/sign=9690e152500fd9f9a017526a152dd42b/adaf2edda3cc7cd9f078faf73801213fb80e9143.jpg",
 				"http://e.hiphotos.baidu.com/album/w%3D230/sign=9d962293b151f819f1250449eab54a76/58ee3d6d55fbb2fbe792fcaa4e4a20a44723dcc9.jpg",
-				"http://g.hiphotos.baidu.com/album/w%3D230/sign=bccaea7c0bd162d985ee651f21dea950/500fd9f9d72a60599bef45a22934349b023bba8f.jpg" };
+				"http://g.hiphotos.baidu.com/album/w%3D230/sign=bccaea7c0bd162d985ee651f21dea950/500fd9f9d72a60599bef45a22934349b023bba8f.jpg",
+				"http://a.hiphotos.baidu.com/album/w%3D310/sign=ff92e2098b82b9013dadc532438da97e/8b13632762d0f703a1e15cf209fa513d2697c549.jpg",
+				"http://t12.baidu.com/it/u=3465439355,3905271308&fm=59",
+				"http://t11.baidu.com/it/u=3255259780,3122740905&fm=59",
+				"http://t11.baidu.com/it/u=623520238,1599092840&fm=59",
+				"http://t10.baidu.com/it/u=2763433320,3047781300&fm=59",
+				"http://t11.baidu.com/it/u=417395623,493879816&fm=59",
+				"http://t11.baidu.com/it/u=2268787663,466819174&fm=59",
+				"http://t12.baidu.com/it/u=2247765677,1967115923&fm=59",
+				"http://t10.baidu.com/it/u=3382898826,3889258074&fm=59",
+				"http://b.hiphotos.baidu.com/album/w%3D310/sign=e29254b02fdda3cc0be4be2131e83905/ca1349540923dd54ffea6a47d009b3de9c824800.jpg",
+				"http://t1.baidu.com/it/u=2976002976,3625039180&fm=23&gp=0.jpg",
+				"http://t3.baidu.com/it/u=435600663,811823342&fm=21&gp=0.jpg",
+				"http://t3.baidu.com/it/u=2597338825,3060554915&fm=21&gp=0.jpg",
+				"http://t2.baidu.com/it/u=1441910787,4169500706&fm=21&gp=0.jpg",
+				"http://t1.baidu.com/it/u=3406736270,1163497769&fm=23&gp=0.jpg",
+				"http://t2.baidu.com/it/u=1144071234,2227445662&fm=21&gp=0.jpg",
+				"http://t3.baidu.com/it/u=1135115870,371233137&fm=21&gp=0.jpg",
+				"http://t1.baidu.com/it/u=3417496042,1937162607&fm=21&gp=0.jpg",
+				"http://t1.baidu.com/it/u=2198072405,2396178938&fm=21&gp=0.jpg",
+				"http://t2.baidu.com/it/u=2037646477,984993186&fm=21&gp=0.jpg",
+				"http://t3.baidu.com/it/u=2754639423,2522281398&fm=21&gp=0.jpg",
+				"http://t3.baidu.com/it/u=255816207,181242671&fm=23&gp=0.jpg" };
 
 		List<ListItemVo> items = new ArrayList<ListItemVo>();
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000; i++) {
 			int yushu = i % urls.length;
 			ListItemVo item = new ListItemVo();
 			item.setTitle("这里是标题" + (i + 1));
 			item.setContent("这里是内容");
+			if(i==25){
+				System.out.println(urls[yushu]);
+			}
 			item.setPhotoUrl(urls[yushu]);
 			items.add(item);
 		}
